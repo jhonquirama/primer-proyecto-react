@@ -7,7 +7,7 @@ class Login extends Component {
      render(){
          return(
              <div>
-                <link to='panel'>iniciar sesion</link>
+                <Link to='panel'>iniciar sesion</Link>
              </div>
     
          )
