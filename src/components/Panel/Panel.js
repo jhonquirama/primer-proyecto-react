@@ -1,9 +1,9 @@
-import React from 'react'
-
+import React from "react";
+import "./Panel.css";
 const Panel = () => (
-    <div>
-          <h1>Panel</h1>
-    </div>
-)
+  <div className="container">
+    <h1>Panel</h1>
+  </div>
+);
 
-export default Panel
+export default Panel;

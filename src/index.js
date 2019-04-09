@@ -1,16 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.sass";
-import Router from './router'
+import "./index.css";
+import Router from "./router";
+//import "semantic-ui-css/semantic.min.css";
 
 import * as serviceWorker from "./serviceWorker";
 
-const App= () => {
- return <Router />;
+const App = () => {
+  return <Router />;
 };
 
 export default App;
-
 
 ReactDOM.render(<App />, document.getElementById("root"));
 

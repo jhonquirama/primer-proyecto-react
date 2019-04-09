@@ -1,17 +1,37 @@
-import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
+import React, { Component } from "react";
+//import {Link} from 'react-router-dom'
+//import { Button } from "semantic-ui-react";
 
+import withFirebaseAuth from "react-with-firebase-auth";
+import * as firebase from "firebase/app";
+import "firebase/auth";
+import firebaseConfig from "../../firebaseConfig";
 
+const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 class Login extends Component {
-     render(){
-         return(
-             <div>
-                <Link to='panel'>iniciar sesion</Link>
-             </div>
-    
-         )
-     }
+  render() {
+    const { user, signOut, signInWithGoogle } = this.props;
+    console.log(user);
+    return (
+      <div>
+        {user ? <p>hola, {user.displayName}</p> : <p>Inicie sesion.</p>}
+        {user ? (
+          <button onClick={signOut}> Cerrar sesion </button>
+        ) : (
+          <button onClick={signInWithGoogle}>Ingresa con Google</button>
+        )}
+      </div>
+    );
+  }
 }
+const firebaseAppAuth = firebaseApp.auth();
 
-export default Login
+const providers = {
+  googleprovider: new firebase.auth.GoogleAuthProvider()
+};
+
+export default withFirebaseAuth({
+  providers,
+  firebaseAppAuth
+})(Login);
