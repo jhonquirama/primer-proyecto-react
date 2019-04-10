@@ -1,9 +1,4 @@
-.App {
-  text-align: center;
-  background-image: linear-gradient();
-}
-
-.App-header {
+.containerPosts {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -14,6 +9,13 @@
   color: white;
 }
 
-link {
-  text-decoration: none;
+.ulPosts {
+  border: white solid;
+  margin: 5px 5px 5px 5px;
+}
+li {
+  border: rgb(230, 243, 218) solid;
+  justify-content: center;
+  margin: 5px 5px 5px 5px;
+  color: orange;
 }

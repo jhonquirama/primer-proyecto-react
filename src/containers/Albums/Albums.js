@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "../Albums/ALbums.css";
 
 class Albums extends Component {
   constructor() {
@@ -22,8 +23,8 @@ class Albums extends Component {
 
   render() {
     return (
-      <div>
-        <ul>
+      <div className="containerAlbums">
+        <ul className="AlbumsCss">
           {this.state.albums.map(post => (
             <li key={post.id}>{post.title}</li>
           ))}

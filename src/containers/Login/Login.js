@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-//import {Link} from 'react-router-dom'
-//import { Button } from "semantic-ui-react";
+//import Panel from "../../components/Panel/Panel";
+import { Link } from "react-router-dom";
 
 import withFirebaseAuth from "react-with-firebase-auth";
 import * as firebase from "firebase/app";
@@ -12,23 +12,32 @@ const firebaseApp = firebase.initializeApp(firebaseConfig);
 class Login extends Component {
   render() {
     const { user, signOut, signInWithGoogle } = this.props;
-    console.log(user);
+
     return (
       <div>
-        {user ? <p>hola, {user.displayName}</p> : <p>Inicie sesion.</p>}
+        {user ? <p>Hola, {user.displayName}</p> : <p>Inicie sesión.</p>}
+
         {user ? (
-          <button onClick={signOut}> Cerrar sesion </button>
+          <button className="b1" onClick={signOut}>
+            Cerrar sesión
+          </button>
         ) : (
-          <button onClick={signInWithGoogle}>Ingresa con Google</button>
+          <button className="b2" onClick={signInWithGoogle}>
+            Ingresa con Google
+          </button>
         )}
+        <Link to="panel">
+          <p>Panel</p>
+        </Link>
       </div>
     );
   }
 }
+
 const firebaseAppAuth = firebaseApp.auth();
 
 const providers = {
-  googleprovider: new firebase.auth.GoogleAuthProvider()
+  googleProvider: new firebase.auth.GoogleAuthProvider()
 };
 
 export default withFirebaseAuth({
